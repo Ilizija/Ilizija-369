@@ -6,17 +6,8 @@
     }
   },
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/web/$1"
-    },
-    {
-      "src": "/",
-      "dest": "/web/index.html"
-    }
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/", "dest": "/web/index.html" },
+    { "src": "/(.*)", "dest": "/web/$1" }
   ]
 }
