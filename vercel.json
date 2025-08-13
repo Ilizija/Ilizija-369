@@ -1,13 +1,8 @@
 {
-  "version": 2,
+  "rootDirectory": "web",
   "functions": {
     "api/**/*.js": {
       "runtime": "nodejs20.x"
     }
-  },
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/web/api/$1" },
-    { "src": "/", "dest": "/web/index.html" },
-    { "src": "/(.*)", "dest": "/web/$1" }
-  ]
+  }
 }
