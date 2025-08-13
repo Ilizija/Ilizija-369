@@ -5,5 +5,18 @@
       "runtime": "nodejs20.x"
     }
   },
-  "framework": null
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/web/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/web/index.html"
+    }
+  ]
 }
