@@ -1,0 +1,1 @@
+import fs from 'fs'; import path from 'path'; export default async function handler(req,res){ try{ const file=path.join(process.cwd(),'dna','dna.json'); const txt=fs.readFileSync(file,'utf8'); res.status(200).json({ok:true,text:txt}); }catch(e){ res.status(200).json({ok:true,text:''}); } }

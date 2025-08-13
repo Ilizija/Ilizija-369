@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Iknow Lite — Command Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { color-scheme: dark; }
+    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:#0b0f17; color:#e5e7eb; }
+    .wrap { max-width: 1180px; margin: 24px auto; padding: 0 16px; }
+    .grid { display:flex; gap:16px; }
+    aside { width:300px; flex:0 0 300px; }
+    main { flex:1; }
+    .card { background:#0f172a; border:1px solid #1e293b; border-radius:14px; padding:16px; box-shadow:0 0 30px #0ea5e922; }
+    h1 { margin:0 0 8px; font-size:24px; }
+    h2 { margin:0 0 10px; font-size:18px; }
+    textarea { width:100%; height:160px; background:#0b1220; color:#fff; border:1px solid #203047; border-radius:12px; padding:10px; }
+    input, button { padding:9px 12px; border-radius:10px; border:1px solid #203047; background:#0b1220; color:#fff; }
+    button { background:#2563eb; border:none; cursor:pointer; }
+    .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .small { font-size:12px; opacity:.85; }
+    .chip { font-size:12px; background:#0b1220; border:1px solid #203047; padding:2px 8px; border-radius:999px; }
+    .ok { color:#22c55e; } .err { color:#ef4444; }
+    a { color:#93c5fd; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>⚡ Iknow Lite — Command Center</h1>
+    <div class="small">Birth • Growth • Existence in Light — with memory in GitHub and a gentle brain via OpenAI.</div>
+
+    <div class="grid" style="margin-top:16px">
+      <aside>
+        <div class="card">
+          <h2>Status</h2>
+          <div class="small" id="statusOut">—</div>
+          <div class="row" style="margin-top:8px"><button id="refreshStatus">Refresh</button></div>
+        </div>
+        <div class="card" style="margin-top:16px; max-height:45vh; overflow:auto">
+          <h2>Repo</h2>
+          <div class="small" id="tree">Loading…</div>
+        </div>
+        <div class="card" style="margin-top:16px; max-height:40vh; overflow:auto">
+          <h2>Evolutions</h2>
+          <div class="small" id="evoList">Loading…</div>
+        </div>
+      </aside>
+
+      <main>
+        <div class="card">
+          <h2>New memory (small chunk)</h2>
+          <textarea id="text" placeholder="Type or paste text…"></textarea>
+          <div class="row" style="margin-top:10px">
+            <button id="saveBtn">Save to repo</button>
+            <span class="small">Path: <span id="savePath" class="chip"></span></span>
+            <span id="status" class="small"></span>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h2>Chat</h2>
+          <textarea id="ask" placeholder="Ask Iknow…"></textarea>
+          <div class="row" style="margin-top:10px"><button id="askBtn">Ask</button><span id="answer" class="small"></span></div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h2>Command Center</h2>
+          <div class="row" style="margin-bottom:8px">
+            <input id="backupLabel" placeholder="Backup label (optional)" />
+            <button id="backupBtn">Backup now</button>
+            <span class="small" id="backupOut"></span>
+          </div>
+          <textarea id="evoNote" placeholder="Evolution note (what to change)…" style="height:110px"></textarea>
+          <div class="row" style="margin-top:8px"><button id="proposeBtn">Propose evolution (PR)</button><span class="small" id="proposeOut"></span></div>
+          <div class="small" style="margin-top:8px">Backups are auto-created before any evolution. Iknow names them using the label + timestamp.</div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h2>Instructions</h2>
+          <div class="row" style="margin-bottom:8px"><button id="loadInstr">Load current</button><span class="small" id="instrMeta"></span></div>
+          <textarea id="instrText" placeholder="Edit instructions…" style="height:160px"></textarea>
+          <div class="row" style="margin-top:8px"><input id="instrTitle" placeholder="Title for this change" /><button id="proposeInstr">Propose instructions PR</button><span class="small" id="instrOut"></span></div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body></html>
